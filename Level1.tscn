@@ -1,16 +1,148 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Box.tscn" type="PackedScene" id=1]
+[ext_resource path="res://TileMap.tres" type="TileSet" id=2]
+[ext_resource path="res://Objects/Tree.png" type="Texture" id=3]
+[ext_resource path="res://Objects/TombStone (2).png" type="Texture" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://BG Layers/bg1.png" type="Texture" id=6]
+[ext_resource path="res://BG Layers/bg2.png" type="Texture" id=7]
+[ext_resource path="res://BG Layers/bg3.png" type="Texture" id=8]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
-[node name="Player" parent="." index="0" instance=ExtResource( 1 )]
-
-position = Vector2( 300.995, 282.824 )
-
-[node name="Box" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Box" parent="." index="0" instance=ExtResource( 1 )]
 
 position = Vector2( 303.716, 548.096 )
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
+
+mode = 0
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 128, 128 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( -65500, 0, 0, 36, 3, 0, 65536, 2, 0, 65572, 3, 0, 131072, 5, 0, 131103, 13, 0, 131104, 14, 0, 131105, 15, 0, 131108, 3, 0, 196608, 5, 0, 196644, 3, 0, 262144, 5, 0, 262153, 0, 0, 262154, 1, 0, 262155, 1, 0, 262156, 2, 0, 262163, 13, 0, 262164, 14, 0, 262165, 14, 0, 262166, 15, 0, 262168, 13, 0, 262169, 14, 0, 262170, 14, 0, 262171, 15, 0, 262180, 3, 0, 327680, 5, 0, 327682, 0, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 7, 0, 327690, 4, 0, 327691, 4, 0, 327692, 9, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 2, 0, 327708, 10, 0, 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 7, 0 )
+_sections_unfolded = [ "Cell" ]
+
+[node name="Objects" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+
+[node name="Tree" type="Sprite" parent="Objects" index="0"]
+
+position = Vector2( 717.651, 519.281 )
+texture = ExtResource( 3 )
+
+[node name="Tree2" type="Sprite" parent="Objects" index="1"]
+
+position = Vector2( 1537.6, 390.749 )
+texture = ExtResource( 3 )
+
+[node name="Tree3" type="Sprite" parent="Objects" index="2"]
+
+position = Vector2( 3739.26, 520.389 )
+texture = ExtResource( 3 )
+
+[node name="TombStone" type="Sprite" parent="Objects" index="3"]
+
+position = Vector2( 1221.41, 473.758 )
+texture = ExtResource( 4 )
+
+[node name="Player" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 296.914, 316.833 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="4"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 0, 0 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 0, 0 )
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
+
+position = Vector2( 1004.53, 244.179 )
+texture = ExtResource( 6 )
+
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="." index="5"]
+
+editor/display_folded = true
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 0.25, 0.25 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 2000, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer" index="0"]
+
+position = Vector2( 1004.53, 244.179 )
+texture = ExtResource( 7 )
+
+[node name="ParallaxBackground3" type="ParallaxBackground" parent="." index="6"]
+
+layer = -1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+scroll_offset = Vector2( 0, 0 )
+scroll_base_offset = Vector2( 0, 0 )
+scroll_base_scale = Vector2( 0.5, 0.5 )
+scroll_limit_begin = Vector2( 0, 0 )
+scroll_limit_end = Vector2( 0, 0 )
+scroll_ignore_camera_zoom = true
+_sections_unfolded = [ "Scroll" ]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground3" index="0"]
+
+motion_scale = Vector2( 1, 1 )
+motion_offset = Vector2( 0, 0 )
+motion_mirroring = Vector2( 2000, 0 )
+_sections_unfolded = [ "Motion" ]
+
+[node name="Sprite" type="Sprite" parent="ParallaxBackground3/ParallaxLayer" index="0"]
+
+position = Vector2( 1004.53, 244.179 )
+texture = ExtResource( 8 )
 
 

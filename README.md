@@ -9,3 +9,7 @@
 
 #### Создаем платформер на GODOT . #3 - Анимация персонажа.
 [![Создаем платформер на GODOT . #3 - Анимация персонажа.](https://img.youtube.com/vi/LSFLm5lrgAY/0.jpg)](https://www.youtube.com/watch?v=LSFLm5lrgAY)
+
+
+#### Создаем платформер на GODOT . #4 - Тайловая карта, Камера, Параллакс фон.
+[![Создаем платформер на GODOT . #4 - Тайловая карта, Камера, Параллакс фон.](https://img.youtube.com/vi/Peje2YEWXFw/0.jpg)](https://www.youtube.com/watch?v=Peje2YEWXFw)
