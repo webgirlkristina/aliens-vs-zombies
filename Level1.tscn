@@ -9,7 +9,7 @@
 [ext_resource path="res://BG Layers/bg2.png" type="Texture" id=7]
 [ext_resource path="res://BG Layers/bg3.png" type="Texture" id=8]
 
-[node name="Level1" type="Node2D" index="0"]
+[node name="Level1" type="Node2D"]
 
 [node name="Box" parent="." index="0" instance=ExtResource( 1 )]
 

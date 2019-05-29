@@ -13,3 +13,7 @@
 
 #### Создаем платформер на GODOT . #4 - Тайловая карта, Камера, Параллакс фон.
 [![Создаем платформер на GODOT . #4 - Тайловая карта, Камера, Параллакс фон.](https://img.youtube.com/vi/Peje2YEWXFw/0.jpg)](https://www.youtube.com/watch?v=Peje2YEWXFw)
+
+
+#### Создаем платформер на GODOT . #5 - Стреляем из бластера.
+[![Создаем платформер на GODOT . #5 - Стреляем из бластера.](https://img.youtube.com/vi/4lPp_4q98wY/0.jpg)](https://www.youtube.com/watch?v=4lPp_4q98wY)

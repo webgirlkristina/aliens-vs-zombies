@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://alien_predator_mask/predatormask__0000_idle_1.png" type="Texture" id=2]
@@ -14,6 +14,9 @@
 [ext_resource path="res://alien_predator_mask/predatormask__0009_walk_4.png" type="Texture" id=12]
 [ext_resource path="res://alien_predator_mask/predatormask__0010_walk_5.png" type="Texture" id=13]
 [ext_resource path="res://alien_predator_mask/predatormask__0011_walk_6.png" type="Texture" id=14]
+[ext_resource path="res://alien_predator_mask/predatormask__0038_fire_4.png" type="Texture" id=15]
+[ext_resource path="res://alien_predator_mask/predatormask__0039_fire_5.png" type="Texture" id=16]
+[ext_resource path="res://alien_predator_mask/predatormask__0040_fire_6.png" type="Texture" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -37,9 +40,14 @@ animations = [ {
 "loop": true,
 "name": "walk",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "fire",
+"speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -59,7 +67,8 @@ shape = SubResource( 1 )
 
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
-animation = "idle"
+animation = "fire"
+frame = 2
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
@@ -87,5 +96,12 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
 _sections_unfolded = [ "Limit", "Smoothing" ]
+
+[node name="Position2D" type="Position2D" parent="." index="3"]
+
+position = Vector2( 39, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
 
