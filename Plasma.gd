@@ -15,4 +15,6 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _on_Plasma_body_entered(body):
+	if "Zombie" in body.name:
+		body.kill()
 	queue_free()

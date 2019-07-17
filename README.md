@@ -17,3 +17,7 @@
 
 #### Создаем платформер на GODOT . #5 - Стреляем из бластера.
 [![Создаем платформер на GODOT . #5 - Стреляем из бластера.](https://img.youtube.com/vi/4lPp_4q98wY/0.jpg)](https://www.youtube.com/watch?v=4lPp_4q98wY)
+
+
+#### Создаем платформер на GODOT . #6 - Добавляем зомби.
+[![Создаем платформер на GODOT . #6 - Добавляем зомби.](https://img.youtube.com/vi/Bkz4htkqHTQ/0.jpg)](https://www.youtube.com/watch?v=Bkz4htkqHTQ)
