@@ -21,3 +21,7 @@
 
 #### Создаем платформер на GODOT . #6 - Добавляем зомби.
 [![Создаем платформер на GODOT . #6 - Добавляем зомби.](https://img.youtube.com/vi/Bkz4htkqHTQ/0.jpg)](https://www.youtube.com/watch?v=Bkz4htkqHTQ)
+
+
+#### Платформер на GODOT . #7 Зомби наносит ответный удар.
+[![Платформер на GODOT . #7 Зомби наносит ответный удар.](https://img.youtube.com/vi/rFAyFeqYPFM/0.jpg)](https://www.youtube.com/watch?v=rFAyFeqYPFM)

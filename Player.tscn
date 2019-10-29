@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://alien_predator_mask/predatormask__0000_idle_1.png" type="Texture" id=2]
@@ -17,14 +17,16 @@
 [ext_resource path="res://alien_predator_mask/predatormask__0038_fire_4.png" type="Texture" id=15]
 [ext_resource path="res://alien_predator_mask/predatormask__0039_fire_5.png" type="Texture" id=16]
 [ext_resource path="res://alien_predator_mask/predatormask__0040_fire_6.png" type="Texture" id=17]
+[ext_resource path="res://alien_predator_mask/predatormask__0022_dead_1.png" type="Texture" id=18]
+[ext_resource path="res://alien_predator_mask/predatormask__0023_dead_2.png" type="Texture" id=19]
+[ext_resource path="res://alien_predator_mask/predatormask__0024_dead_3.png" type="Texture" id=20]
+[ext_resource path="res://alien_predator_mask/predatormask__0025_dead_4.png" type="Texture" id=21]
+[ext_resource path="res://alien_predator_mask/predatormask__0026_dead_5.png" type="Texture" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
 extents = Vector2( 26.16, 48.717 )
 
 [sub_resource type="SpriteFrames" id=2]
-
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
@@ -45,63 +47,35 @@ animations = [ {
 "loop": false,
 "name": "fire",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "die",
+"speed": 5.0
 } ]
 
-[node name="Player" type="KinematicBody2D" index="0"]
-
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+[node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.16796, 0 )
 shape = SubResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="1"]
-
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 2 )
-animation = "fire"
-frame = 2
-_sections_unfolded = [ "Transform" ]
+animation = "die"
 
-[node name="Camera2D" type="Camera2D" parent="." index="2"]
-
-anchor_mode = 1
-rotating = false
+[node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 1, 1 )
 limit_left = 0
-limit_top = -10000000
 limit_right = 4700
 limit_bottom = 768
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = false
-editor_draw_drag_margin = false
-_sections_unfolded = [ "Limit", "Smoothing" ]
 
-[node name="Position2D" type="Position2D" parent="." index="3"]
-
+[node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 39, 2 )
-_sections_unfolded = [ "Transform" ]
-
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
-
-

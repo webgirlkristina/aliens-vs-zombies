@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Zombie.gd" type="Script" id=1]
 [ext_resource path="res://Zombie/Walk1.png" type="Texture" id=2]
@@ -15,9 +15,14 @@
 [ext_resource path="res://Zombie/Dead6.png" type="Texture" id=13]
 [ext_resource path="res://Zombie/Dead7.png" type="Texture" id=14]
 [ext_resource path="res://Zombie/Dead8.png" type="Texture" id=15]
+[ext_resource path="res://Zombie/Attack1.png" type="Texture" id=16]
+[ext_resource path="res://Zombie/Attack2.png" type="Texture" id=17]
+[ext_resource path="res://Zombie/Attack3.png" type="Texture" id=18]
+[ext_resource path="res://Zombie/Attack4.png" type="Texture" id=19]
+[ext_resource path="res://Zombie/Attack5.png" type="Texture" id=20]
+[ext_resource path="res://Zombie/Attaxk6.png" type="Texture" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
-
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -28,43 +33,43 @@ animations = [ {
 "loop": false,
 "name": "dead",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
+"loop": false,
+"name": "attack",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
 extents = Vector2( 17.9147, 47.6677 )
 
 [sub_resource type="RectangleShape2D" id=3]
-
-custom_solver_bias = 0.0
 extents = Vector2( 52.9008, 16.3305 )
 
-[node name="Zombie" type="KinematicBody2D" index="0"]
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16.8544, 47.3999 )
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+[node name="Zombie" type="KinematicBody2D"]
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
-
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 1 )
-animation = "dead"
-frame = 5
-_sections_unfolded = [ "Transform" ]
+animation = "attack"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 3.64888, 1.93174 )
 shape = SubResource( 2 )
 
-[node name="DeadCollision" type="CollisionShape2D" parent="." index="2"]
-
+[node name="DeadCollision" type="CollisionShape2D" parent="."]
 position = Vector2( -3.64885, 6.00988 )
 shape = SubResource( 3 )
 disabled = true
 
+[node name="Area2D" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 20.9003, 1.53677 )
+shape = SubResource( 4 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
