@@ -10,6 +10,11 @@ var is_firing = false
 var is_dead = false
 var velocity = Vector2()
 
+var coins = 0
+
+func add_coin():
+	coins += 1
+
 func die():
 	$AnimatedSprite.play("die")
 	$CollisionShape2D.set_deferred("disabled", true)

@@ -25,3 +25,6 @@
 
 #### Платформер на GODOT . #7 Зомби наносит ответный удар.
 [![Платформер на GODOT . #7 Зомби наносит ответный удар.](https://img.youtube.com/vi/rFAyFeqYPFM/0.jpg)](https://www.youtube.com/watch?v=rFAyFeqYPFM)
+
+#### Платформер на GODOT . #8 Собираем призы.
+[![Платформер на GODOT . #8 Собираем призы.](https://img.youtube.com/vi/iUiIvptQqAc/0.jpg)](https://www.youtube.com/watch?v=iUiIvptQqAc)

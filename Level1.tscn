@@ -1,22 +1,26 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Box.tscn" type="PackedScene" id=1]
-[ext_resource path="res://TileMap.tres" type="TileSet" id=2]
-[ext_resource path="res://Objects/Tree.png" type="Texture" id=3]
-[ext_resource path="res://Objects/TombStone (2).png" type="Texture" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://BG Layers/bg1.png" type="Texture" id=6]
-[ext_resource path="res://BG Layers/bg2.png" type="Texture" id=7]
-[ext_resource path="res://BG Layers/bg3.png" type="Texture" id=8]
-[ext_resource path="res://Zombie.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Level1.gd" type="Script" id=1]
+[ext_resource path="res://Box.tscn" type="PackedScene" id=2]
+[ext_resource path="res://TileMap.tres" type="TileSet" id=3]
+[ext_resource path="res://Objects/Tree.png" type="Texture" id=4]
+[ext_resource path="res://Objects/TombStone (2).png" type="Texture" id=5]
+[ext_resource path="res://Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://BG Layers/bg1.png" type="Texture" id=8]
+[ext_resource path="res://BG Layers/bg2.png" type="Texture" id=9]
+[ext_resource path="res://BG Layers/bg3.png" type="Texture" id=10]
+[ext_resource path="res://Stats.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Zombie.tscn" type="PackedScene" id=12]
 
 [node name="Level1" type="Node2D"]
+script = ExtResource( 1 )
 
-[node name="Box" parent="." instance=ExtResource( 1 )]
+[node name="Box" parent="." instance=ExtResource( 2 )]
 position = Vector2( 303.716, 548.096 )
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -65500, 0, 0, 36, 3, 0, 65536, 2, 0, 65572, 3, 0, 131072, 5, 0, 131103, 13, 0, 131104, 14, 0, 131105, 15, 0, 131108, 3, 0, 196608, 5, 0, 196644, 3, 0, 262144, 5, 0, 262153, 0, 0, 262154, 1, 0, 262155, 1, 0, 262156, 2, 0, 262163, 13, 0, 262164, 14, 0, 262165, 14, 0, 262166, 15, 0, 262168, 13, 0, 262169, 14, 0, 262170, 14, 0, 262171, 15, 0, 262180, 3, 0, 327680, 5, 0, 327682, 0, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 7, 0, 327690, 4, 0, 327691, 4, 0, 327692, 9, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 2, 0, 327708, 10, 0, 327709, 1, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 7, 0 )
@@ -26,21 +30,30 @@ editor/display_folded = true
 
 [node name="Tree" type="Sprite" parent="Objects"]
 position = Vector2( 717.651, 519.281 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Tree2" type="Sprite" parent="Objects"]
 position = Vector2( 1537.6, 390.749 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Tree3" type="Sprite" parent="Objects"]
 position = Vector2( 3739.26, 520.389 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="TombStone" type="Sprite" parent="Objects"]
 position = Vector2( 1221.41, 473.758 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Coin" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 428.073, 615.539 )
+
+[node name="Coin2" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 994.515, 613.952 )
+
+[node name="Coin3" parent="Objects" instance=ExtResource( 6 )]
+position = Vector2( 1421.33, 483.845 )
+
+[node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 296.914, 316.833 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -51,7 +64,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
 position = Vector2( 1004.53, 244.179 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 editor/display_folded = true
@@ -63,9 +76,10 @@ motion_mirroring = Vector2( 2000, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground2/ParallaxLayer"]
 position = Vector2( 1004.53, 244.179 )
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 
 [node name="ParallaxBackground3" type="ParallaxBackground" parent="."]
+editor/display_folded = true
 scroll_base_scale = Vector2( 0.5, 0.5 )
 scroll_ignore_camera_zoom = true
 
@@ -74,10 +88,12 @@ motion_mirroring = Vector2( 2000, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground3/ParallaxLayer"]
 position = Vector2( 1004.53, 244.179 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 
-[node name="Zombie" parent="." instance=ExtResource( 9 )]
+[node name="Stats" parent="." instance=ExtResource( 11 )]
+
+[node name="Zombie" parent="." instance=ExtResource( 12 )]
 position = Vector2( 2124.47, 566.079 )
 
-[node name="Zombie2" parent="." instance=ExtResource( 9 )]
+[node name="Zombie2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 695.577, 566.134 )
